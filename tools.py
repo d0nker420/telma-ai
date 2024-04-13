@@ -60,6 +60,7 @@ class EndConversation(BaseTool):
         """Use the tool."""
         print('#'*10, 'Conversation ended', '#'*10)
         print('CMB classes:', cmb_classes)
+        # TODO: convert CMB STR to CMB JSON
 
     async def _arun(
         self, query: str, run_manager: Optional[AsyncCallbackManagerForToolRun] = None
