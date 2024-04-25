@@ -1,0 +1,232 @@
+{
+  "id": "d7624fa1-fb07-40e4-ba8b-a3324ce6accb",
+  "created_at": "2024-01-23T09:51:48.728075",
+  "account_id": "66761e81-f74b-460e-9a12-12677a8771f9",
+  "current_bot_version_id": "8e207047-5344-4b62-89bc-6384229a51a5",
+  "name": "pepege",
+  "description": "Patch request test",
+  "language": "en",
+  "channel": "voice",
+  "dialog": {
+    "modules": {
+      "c79fc092-3878-4a01-9950-5e7546cd9e6c": {
+        "type": "NumericRatingModule",
+        "params": {
+          "min": 1,
+          "max": 5,
+          "retries": 5,
+          "prompt": "On a scale from $min (totally satisfied) to $max (totally unsatisfied), how would you describe your experience with the {{$service}} you were in touch recently?",
+          "out_of_bounds_prompt": "Please, choose a number between $min and $max.",
+          "not_found_prompt": "",
+          "found_prompt": "Thank you",
+          "try_again_prompt": "",
+          "max_retries_reached_prompt": ""
+        },
+        "handlers": {
+          "node_exit": "5311b7ca-9280-48c6-a11f-e98cc7a32fdd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65e": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65w": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65t": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65i": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65p": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65n": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65m": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65V": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65B": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c653": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c656": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c655": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c654": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c657": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "Hello {{$name}}!\nMy name is Cori the batman, I am virtual asisstant from {{$company}} and I would like to ask you a couple of questions."
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "483a1f66-d13b-4440-a61b-108f39c2c65x": {
+        "type": "Prompt",
+        "params": {
+          "prompt": "test upload"
+        },
+        "handlers": {
+          "node_exit": "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd"
+        }
+      },
+      "5311b7ca-9280-48c6-a11f-e98cc7a32fdd": {
+        "type": "OpenQuestion",
+        "params": {
+          "question": "Can I ask you for some further comments regarding your evaluation please?",
+          "acknowledgment_prompt": "Thank you very much for your time and shared information. We are going to use it to improve our services. Let me wish you a wonderful day."
+        },
+        "handlers": {
+          "node_exit": "end"
+        }
+      },
+      "ebf25cd4-1f04-4f73-9fd7-8ab53c2796dd": {
+        "type": "YesNoConfirmation",
+        "params": {
+          "no_alternatives": [
+            "no",
+            "I am sorry",
+            "I would not",
+            "I do not",
+            "I do not have time"
+          ],
+          "yes_alternatives": [
+            "yes",
+            "of course",
+            "I would",
+            "definitely",
+            "yeah"
+          ],
+          "prompt_no_acknowledgment": "I am sorry for disturbing you. Let me wish you a wonderful day.",
+          "prompt_yes_acknowledgment": "Perfect. Lets do it.",
+          "question": "Would you like to share with me your opinion and participate in a quick survey?",
+          "number_of_retries": 2
+        },
+        "handlers": {
+          "node_exit": "c79fc092-3878-4a01-9950-5e7546cd9e6c",
+          "on_no": "end"
+        }
+      },
+      "end": {
+        "type": "Exit"
+      }
+    },
+    "root_module": "483a1f66-d13b-4440-a61b-108f39c2c65e",
+    "initial_user_response_timeout": 3000
+  },
+  "omnichannel_config": {
+    "voice": {
+      "initial_user_response_timeout": 3000,
+      "tts": {
+        "language": "en-GB",
+        "provider": "mvoice",
+        "voice": "en-UK_CoriU16",
+        "prosody": {
+          "rate": "111%"
+        }
+      },
+      "stt": {
+        "language": "en-GB"
+      }
+    }
+  },
+  "mchannels_bot_id": "maria-cmb",
+  "permanent": true,
+  "task_values": {
+    "service": "investment banker",
+    "company": "The Bank",
+    "name": "Jan"
+  },
+  "bot_id": "bfe3a864-aecb-4474-ae86-2ab24e60439c"
+}
