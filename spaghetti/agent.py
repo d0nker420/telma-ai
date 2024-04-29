@@ -6,7 +6,7 @@ import getpass
 import os
 import openai
 
-api_key = os.environ.get('OPENAI_API_KEY')
+API_KEY = os.environ.get('OPENAI_API_KEY')
 
 
 llm = ChatOpenAI(model="gpt-3.5-turbo-0125")
@@ -95,7 +95,7 @@ def user_interaction_for_nodes(initial_prompt):
     # Generate conversation flow using OpenAI's Completion API
     response = openai.chat.completions.create(
         messages=[
-            {"role": "system", "content": initial_prompt},
+            {"role": "system", "content": hidden_prompt},
             {"role": "system", "content": user_query}
             ],
         model="gpt-3.5-turbo-0125",
