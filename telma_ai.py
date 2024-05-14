@@ -10,6 +10,7 @@ def get_access_token():
 
     headers = {
         'accept': 'application/json',
+        'Authorization': 'Basic amFuLmhvcmFrQHR1dGFub3RhLmNvbTpLeUtVTWZ5UjVwaGRVQXo='
     }
 
     response = requests.request("POST", url, headers=headers)
@@ -18,11 +19,11 @@ def get_access_token():
     return access_token
 
 
-def create_telma_graph(cmb_json):
+def create_telma_graph(cmb_json, current_bot_version_id, bot_id):
     access_token = get_access_token()
 
-    current_bot_version_id = cmb_json.get('current_bot_version_id')
-    bot_id = cmb_json.get('id')
+    # current_bot_version_id = cmb_json.get('current_bot_version_id')
+    # bot_id = cmb_json.get('id')
 
     print(bot_id)
     print(current_bot_version_id)
@@ -41,9 +42,9 @@ def create_telma_graph(cmb_json):
     print(response.text)
 
 
-# argg = open("./json_cmb_examples/Letiště Praha Introduction.json")
-with open('./json_cmb_examples/nps_bot.json', encoding='UTF-8') as file:
-    payload = json.load(file)
-
-
-create_telma_graph(payload)
+# # argg = open("./json_cmb_examples/Letiště Praha Introduction.json")
+# with open('./json_cmb_examples/nps_bot.json', encoding='UTF-8') as file:
+#     payload = json.load(file)
+#
+#
+# create_telma_graph(payload)

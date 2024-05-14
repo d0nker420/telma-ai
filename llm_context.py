@@ -2,4 +2,4 @@
 
 # create the hidden context describing what exactly should the llm do.
 
-LLM_HIDDEN_CONTEXT = "Not implemented"
+LLM_HIDDEN_CONTEXT = ""
