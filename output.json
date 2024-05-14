@@ -1,0 +1,133 @@
+{
+    "id": "2c2a3422-0c0f-4cdf-9fcf-b53ad4085b1c",
+    "created at": "2024-04-29T15:27:05.242920",
+    "account_id": "91abaec1-1330-4c59-a1bf-3030cac8fc96",
+    "current_bot_version_id": "5f4da55d-22aa-47ac-806d-774d920fab1a",
+        "id": "41d59eba-5baa-4b29-9dc2-afccf147f2f5",
+        "created_at": "2024-04-29T15:27:05.242920",
+        "name": "",
+        "description": "",
+        "language": "en",
+        "channel": "voice",
+        "dialog": {
+            "modules": {
+                "7c0dcefb-45b3-4db7-8826-c11f52c1bccb": {
+                    "type": "Prompt",
+                    "params": {
+                        "prompt": "Welcome to Silly Goose Orthodontics, where we ensure your smile is our priority."
+                    },
+                    "handlers": {
+                        "node_exit": "e5366e17-5b8c-418b-b05d-8e64ff99205e"
+                    }
+                },
+                "e5366e17-5b8c-418b-b05d-8e64ff99205e": {
+                    "type": "YesNoConfirmation",
+                    "params": {
+                        "question": "Are you a new or returning patient?",
+                        "prompt_yes_acknowledgment": "Welcome back! It's great to see you again.",
+                        "prompt_no_acknowledgment": "Welcome! We're thrilled to have you join our Silly Goose family.",
+                        "yes_alternatives": [
+                            "Yes, I've been here before",
+                            "Returning",
+                            "Yes, I am",
+                            "Sure am",
+                            "Absolutely"
+                        ],
+                        "no_alternatives": [
+                            "No, I'm new",
+                            "First time",
+                            "New patient",
+                            "This is my first visit",
+                            "Nope, I'm new"
+                        ]
+                    },
+                    "handlers": {
+                        "node_exit": "f76c97de-c5a4-43fc-be9d-a16705a6b24e"
+                    }
+                },
+                "f76c97de-c5a4-43fc-be9d-a16705a6b24e": {
+                    "type": "OpenQuestion",
+                    "params": {
+                        "question": "Could you please provide your full name for our records?",
+                        "acknowledgment_prompt": "Thank you, we've got you down."
+                    },
+                    "handlers": {
+                        "node_exit": "5279ab23-30fe-4190-9daa-8caa10745793"
+                    }
+                },
+                "5279ab23-30fe-4190-9daa-8caa10745793": {
+                    "type": "OpenQuestion",
+                    "params": {
+                        "question": "Which service are you interested in? For instance, a braces consultation or a teeth whitening appointment?",
+                        "acknowledgment_prompt": "Got it, thank you for letting us know."
+                    },
+                    "handlers": {
+                        "node_exit": "668aae33-5a59-4797-a7ba-e99451588e1f"
+                    }
+                },
+                "668aae33-5a59-4797-a7ba-e99451588e1f": {
+                    "type": "OpenQuestion",
+                    "params": {
+                        "question": "What would be your preferred date and time for the appointment?",
+                        "acknowledgment_prompt": "Perfect, we will do our best to accommodate your preference."
+                    },
+                    "handlers": {
+                        "node_exit": "bf3d3da6-f056-4e9e-bf73-8f446324402a"
+                    }
+                },
+                "bf3d3da6-f056-4e9e-bf73-8f446324402a": {
+                    "type": "NumericRatingModule",
+                    "params": {
+                        "prompt": "How did you learn about Silly Goose Orthodontics? Please rate your source from 1 to 5, with 5 being the most helpful.",
+                        "variable_name": "source_rating",
+                        "min_label": "Not helpful",
+                        "max_label": "Very helpful"
+                    },
+                    "handlers": {
+                        "node_exit": "f535ac81-c058-436d-9773-18bb8f81a950"
+                    }
+                },
+                "f535ac81-c058-436d-9773-18bb8f81a950": {
+                    "type": "Prompt",
+                    "params": {
+                        "prompt": "All set! Your appointment details are confirmed, and we can't wait to see you. Thank you for choosing Silly Goose Orthodontics."
+                    },
+                    "handlers": {
+                        "node_exit": "a47e2a3f-45c2-4912-a6ab-5514f5ab92c8"
+                    }
+                },
+                "a47e2a3f-45c2-4912-a6ab-5514f5ab92c8": {
+                    "type": "SMSModule",
+                    "params": {
+                        "prompt": "This is a confirmation from Silly Goose Orthodontics for your upcoming appointment. We look forward to seeing you smile!"
+                    },
+                    "handlers": {
+                        "node_exit": "end"
+                    }
+                }
+            },
+            "root_module": "7c0dcefb-45b3-4db7-8826-c11f52c1bccb",
+            "initial_user_response_timeout": "3000"
+        },
+        "omnichannel_config": {
+            "voice": {
+                "initial_user_response_timeout": "3000",
+                "tts": {
+                    "language": "en-GB",
+                    "provider": "mvoice",
+                    "voice": "en-GB_TomasU8",
+                    "prosody": {
+                        "rate": "120%"
+                    }
+                },
+                "stt": {
+                    "language": "en-GB"
+                }
+            }
+        },
+        "mchannels_bot_id": "maria-cmb",
+        "permanent": true,
+        "task_values": {},
+        "bot_id": "2c2a3422-0c0f-4cdf-9fcf-b53ad4085b1c",
+    "labels": []
+}
