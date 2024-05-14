@@ -126,51 +126,50 @@ def get_schema_dict(node_type):
 
 def get_bot_schema(modules, task_values):
     root_module = next(iter(modules.keys()))
+    modules.update({"end": {"type": "Exit"}})
     bot_id = str(uuid.uuid4())
     return {
         "id": bot_id,
         "created at": datetime.now().isoformat(),
         "account_id": config["BOT"]["account_id"],
         "current_bot_version_id": config["BOT"]["current_bot_version_id"],
-        "current_bot_version": {
-            "id": str(uuid.uuid4()),
-            # We need to fetch this metadata but for now itll be datetime.now()
-            "created_at": datetime.now().isoformat(),
-            "name": "",
-            "description": "",
-            # We should use english for the demo in the presentation
-            "language": "en",
-            "channel": "voice",
-            "dialog": {
+        "id": str(uuid.uuid4()),
+        # We need to fetch this metadata but for now itll be datetime.now()
+        "created_at": datetime.now().isoformat(),
+        "name": "",
+        "description": "",
+        # We should use english for the demo in the presentation
+        "language": "en",
+        "channel": "voice",
+        "dialog": {
                 "modules": modules,
                 "root_module": root_module,
                 "initial_user_response_timeout": config["BOT"]["initial_user_response_timeout"],
-                },
-            "omnichannel_config": {
-                "voice": {
-                    "initial_user_response_timeout": config["BOT"]["initial_user_response_timeout"],
-                    "tts": {
-                        "language": "en-GB",
-                        "provider": config["BOT"]["provider"],
-                        "voice": config["BOT"]["voice"],
-                        # wtf is prosody
-                        "prosody": {
-                            "rate": "{}%".format(config["BOT"]["prosody"])
-                            }
-                        },
-                    "stt": {
-                        "language": "en-GB"
-                        }
-
-                    }
-                },
-            # idk what the two values below do ngl
-            "mchannels_bot_id": "maria-cmb",
-            # In the json it's true so make sure it converts correctly
-            "permanent": True,
-            # TODO - generate task_values by the AI as well
-            "task_values": task_values,
-            "bot_id": bot_id,
             },
+        "omnichannel_config": {
+            "voice": {
+                "initial_user_response_timeout": config["BOT"]["initial_user_response_timeout"],
+                "tts": {
+                    "language": "en-GB",
+                    "provider": config["BOT"]["provider"],
+                    "voice": config["BOT"]["voice"],
+                    # wtf is prosody
+                    "prosody": {
+                        "rate": "{}%".format(config["BOT"]["prosody"])
+                        }
+                    },
+                "stt": {
+                    "language": "en-GB"
+                    }
+
+                }
+            },
+        # idk what the two values below do ngl
+        "mchannels_bot_id": "maria-cmb",
+        # In the json it's true so make sure it converts correctly
+        "permanent": True,
+        # TODO - generate task_values by the AI as well
+        "task_values": task_values,
+        "bot_id": bot_id,
         "labels": [],
         }
