@@ -25,11 +25,13 @@ def getStaticConfig():
     MODEL = "gpt-4-turbo-preview"
     return API_KEY, MAX_TOKENS, HIDDEN_PROMPT, MODEL
 
+
 def getConversationPrompt(user_query):
     _, _, HIDDEN_PROMPT, _ = getStaticConfig()
     with open('prompts/assemble_prompt.txt', 'r') as file:
         assemble_prompt = file.read().strip()
     return HIDDEN_PROMPT + user_query, assemble_prompt
+
 
 def callPreTunnedConversationPrompt(user_query):
     pre_tuning_user_query = "silly goose orthodontics reservation bot"
@@ -66,6 +68,7 @@ def callPreTunnedConversationPrompt(user_query):
 
     return bot_response_cmb
 
+
 def validateAndSortBotResponseCmb(bot_response_cmb):
     print("Validating bot response CMB")
     nodes = np.array(["SMSModule", "YesNoConfirmation", "NumericRatingModule", "OpenQuestion", "Prompt"])
@@ -87,7 +90,8 @@ def validateAndSortBotResponseCmb(bot_response_cmb):
     print("TESTS PASSED")
     return nodes_sorted, cmb_sorted
 
-def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, generate_output_file = False):
+
+def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values={}, generate_output_file=False):
     print("Generating final CMB")
     ids = [str(uuid.uuid4()) for i in range(len(cmb_sorted))]
     modules = {}
@@ -107,6 +111,7 @@ def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, generate_output
             del bot_response_cmb[node_type]["node_exit"]
 
             modules.update(get_yesno_cmb_schema(id, params, node_exit, on_no, nodes_sorted[i]))
+            continue
 
         node_exit = "end"
         if not i + 1 == len(ids):
@@ -114,12 +119,13 @@ def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, generate_output
 
         modules.update(get_cmb_schema(params, node_exit, nodes_sorted[i], id))
 
-    cmb_output = get_bot_schema(modules, {})
-    if(generate_output_file):
+    cmb_output = get_bot_schema(modules, task_values)
+    if (generate_output_file):
         with open('output.json', 'w') as f:
             json.dump(cmb_output, f, indent=4)
 
     return cmb_output
+
 
 def load_tested_cmb():
     # print(cmb_response)
@@ -128,14 +134,20 @@ def load_tested_cmb():
     return cmb_response
 
 # create a llm and langchain call to get the response of an llm
-def call_language_model(user_query, offline_demo=True):
+
+
+def call_language_model(user_query, offline_demo=False):
 
     bot_response_cmb = callPreTunnedConversationPrompt(user_query)
 
     if (offline_demo):
         return load_tested_cmb()
 
+    task_values = {}
+    if 'task_values' in bot_response_cmb.keys():
+        task_values = bot_response_cmb['task_values']
+        del bot_response_cmb['task_values']
     nodes_sorted, cmb_sorted = validateAndSortBotResponseCmb(bot_response_cmb)
-    cmb_output = generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, generate_output_file = False)
+    cmb_output = generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values, generate_output_file=True)
 
     return cmb_output
