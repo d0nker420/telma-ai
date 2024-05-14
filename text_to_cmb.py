@@ -17,8 +17,8 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 # Ensure OPENAI_API_KEY is defined in env and contains your api key, or put it in config.ini
-API_KEY = os.environ.get('OPENAI_API_KEY')
-# API_KEY = config['DEFAULT']['api_key']
+#API_KEY = os.environ.get('OPENAI_API_KEY')
+API_KEY = config['DEFAULT']['api_key']
 MAX_TOKENS = int(config['DEFAULT']['max_tokens'])
 HIDDEN_PROMPT = config['HIDDEN_PROMPTS']['hidden_prompt']
 MODEL = "gpt-4-turbo-preview"
