@@ -124,7 +124,7 @@ def get_schema_dict(node_type):
     return schema[node_type]
 
 
-def get_bot_schema(modules, task_values):
+def get_bot_schema(modules, task_values, gen_prompt:str):
     root_module = next(iter(modules.keys()))
     modules.update({"end": {"type": "Exit"}})
     bot_id = str(uuid.uuid4())
@@ -137,7 +137,7 @@ def get_bot_schema(modules, task_values):
         # We need to fetch this metadata but for now itll be datetime.now()
         "created_at": datetime.now().isoformat(),
         "name": "",
-        "description": "",
+        "description": gen_prompt,
         # We should use english for the demo in the presentation
         "language": "en",
         "channel": "voice",

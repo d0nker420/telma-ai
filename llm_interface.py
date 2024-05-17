@@ -91,7 +91,7 @@ def validateAndSortBotResponseCmb(bot_response_cmb):
     return nodes_sorted, cmb_sorted
 
 
-def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values={}, generate_output_file=False):
+def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values={}, generate_output_file=False, user_query=''):
     print("Generating final CMB")
     ids = [str(uuid.uuid4()) for i in range(len(cmb_sorted))]
     modules = {}
@@ -119,7 +119,7 @@ def generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values={},
 
         modules.update(get_cmb_schema(params, node_exit, nodes_sorted[i], id))
 
-    cmb_output = get_bot_schema(modules, task_values)
+    cmb_output = get_bot_schema(modules, task_values, user_query)
     if (generate_output_file):
         with open('output.json', 'w') as f:
             json.dump(cmb_output, f, indent=4)
@@ -148,6 +148,6 @@ def call_language_model(user_query, offline_demo=False):
         task_values = bot_response_cmb['task_values']
         del bot_response_cmb['task_values']
     nodes_sorted, cmb_sorted = validateAndSortBotResponseCmb(bot_response_cmb)
-    cmb_output = generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values, generate_output_file=True)
+    cmb_output = generateFinalCmb(bot_response_cmb, nodes_sorted, cmb_sorted, task_values, generate_output_file=True, user_query=user_query)
 
     return cmb_output

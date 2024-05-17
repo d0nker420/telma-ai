@@ -10,7 +10,7 @@ response = requests.post(
     headers={'Authorization': f'Bearer {api_key}'},
     json={
         'model': 'gpt-4-turbo',
-        'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'}, 
+        'messages': [{'role': 'system', 'content': 'You are a helpful assistant.'},
                      {'role': 'user', 'content': 'Tell me a joke.'}]
     }
 )
